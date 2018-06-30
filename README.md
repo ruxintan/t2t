@@ -31,19 +31,16 @@ _NC_TEST_DATASETS = [[
 ```
 ## t2t训练
 ### 预处理
-- 
-```
+- ```
 CUDA_VISIBLE_DEVICES=0 t2t-datagen  --t2t_usr_dir=self_script --data_dir=self_data --tmp_dir=rawdata --problem=my_problem
 ```
 
 ### 训练
-- 
-```
+- ```
 CUDA_VISIBLE_DEVICES=0 t2t-trainer --t2t_usr_dir=self_script --problem=my_problem --data_dir=self_data --model=transformer --hparams_set=transformer_base_single_gpu --output_dir=train
 ```
 
 ### 解码
--
-```
+-```
 CUDA_VISIBLE_DEVICES=0 t2t-decoder --t2t_usr_dir=self_script --problem=my_problem --data_dir=self_data --model=transformer --hparams_set=transformer_base_single_gpu --output_dir=train --decode_hparams="beam_size=4,alpha=0.6" --decode_from_file=decoder/test.uy --decode_to_file=decoder/result.ch
 ```
