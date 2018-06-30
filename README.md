@@ -1,7 +1,6 @@
 # t2t针对自定义平行语料的配置
 ## 准备
 - 文件组织格式如下所示：
-- 
 ![](https://github.com/ruxintan/t2t/blob/master/1530325487479.jpg)
 - rawdata:存放训练集和验证集；训练集命名为：xx.txt;验证集命名为：dev.xx.xx代表语言缩写。
 - decoder：存放最后的测试结果（初始化为空）
