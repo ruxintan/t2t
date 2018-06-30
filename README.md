@@ -6,6 +6,7 @@
 
 - rawdata:存放训练集和验证集；训练集命名为：xx.txt;验证集命名为：dev.xx.xx代表语言缩写。
 - decoder：存放最后的测试结果（初始化为空）
+
 - self_data:存放t2t编译之后的二进制数据
 - self_script：存放编写的problems文件
 - train：训练相关数据
@@ -31,16 +32,19 @@ _NC_TEST_DATASETS = [[
 ```
 ## t2t训练
 ### 预处理
-- ```
+- 
+```
 CUDA_VISIBLE_DEVICES=0 t2t-datagen  --t2t_usr_dir=self_script --data_dir=self_data --tmp_dir=rawdata --problem=my_problem
 ```
 
 ### 训练
-- ```
+- 
+```
 CUDA_VISIBLE_DEVICES=0 t2t-trainer --t2t_usr_dir=self_script --problem=my_problem --data_dir=self_data --model=transformer --hparams_set=transformer_base_single_gpu --output_dir=train
 ```
 
 ### 解码
--```
+-
+```
 CUDA_VISIBLE_DEVICES=0 t2t-decoder --t2t_usr_dir=self_script --problem=my_problem --data_dir=self_data --model=transformer --hparams_set=transformer_base_single_gpu --output_dir=train --decode_hparams="beam_size=4,alpha=0.6" --decode_from_file=decoder/test.uy --decode_to_file=decoder/result.ch
 ```
