@@ -48,3 +48,8 @@ CUDA_VISIBLE_DEVICES=0 t2t-trainer --t2t_usr_dir=self_script --problem=my_proble
 ```
 CUDA_VISIBLE_DEVICES=0 t2t-decoder --t2t_usr_dir=self_script --problem=my_problem --data_dir=self_data --model=transformer --hparams_set=transformer_base_single_gpu --output_dir=train --decode_hparams="beam_size=4,alpha=0.6" --decode_from_file=decoder/test.uy --decode_to_file=decoder/result.ch
 ```
+
+### 导出模型
+```
+CUDA_VISIBLE_DEVICES=0 t2t-exporter --t2t_usr_dir=self_script --problem=my_problem --data_dir=./self_data --model=transformer --hparams_set=transformer_base_single_gpu --output_dir=./train
+```
